@@ -18,7 +18,6 @@ export default function MenuScreen() {
 
     return (
         <Container>
-
             <FlatList
                 data={MENU_ITEMS}
                 keyExtractor={(item) => item.id.toString()}

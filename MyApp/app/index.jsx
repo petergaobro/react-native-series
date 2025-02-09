@@ -17,10 +17,14 @@ const app = () => {
             <Text style={styles.buttonText}>Our Menu</Text>
           </Pressable>
         </Link>
-
         <Link href="/contact" style={{ marginHorizontal: 'auto' }} asChild>
           <Pressable style={styles.button}>
             <Text style={styles.buttonText}>Contact Us</Text>
+          </Pressable>
+        </Link>
+        <Link href="/order" style={{ marginHorizontal: 'auto' }} asChild>
+          <Pressable style={styles.button}>
+            <Text style={styles.buttonText}>Order</Text>
           </Pressable>
         </Link>
       </ImageBackground>

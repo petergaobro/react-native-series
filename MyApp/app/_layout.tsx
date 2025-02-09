@@ -1,6 +1,8 @@
 // import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
+import { SafeAreaProvider } from "react-native-safe-area-context";
+
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
 import { useEffect } from 'react';
@@ -9,6 +11,7 @@ import { Appearance } from 'react-native';
 
 // import { useColorScheme } from '@/hooks/useColorScheme';
 import { Colors } from '@/constants/Colors';
+
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -31,14 +34,17 @@ export default function RootLayout() {
   }
 
   return (
-    <Stack screenOptions={{ headerStyle: { backgroundColor: theme.headerBackground }, headerTintColor: theme.text, headerShadowVisible: false }}>
-      <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
-      <Stack.Screen name="menu" options={{ headerShown: true, title: 'Menu', headerTitle: 'Coffee Shop Menu' }} />
-      <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact', headerTitle: 'Contact Us' }} />
-      {/* <Stack.Screen name="(flower)" options={{ headerShown: false }} /> */}
-      {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
+    <SafeAreaProvider>
+      <Stack screenOptions={{ headerStyle: { backgroundColor: theme.headerBackground }, headerTintColor: theme.text, headerShadowVisible: false }}>
+        <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
+        <Stack.Screen name="menu" options={{ headerShown: true, title: 'Menu', headerTitle: 'Coffee Shop Menu' }} />
+        <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact', headerTitle: 'Contact Us' }} />
+        <Stack.Screen name="order" options={{ headerShown: true, title: 'Order', headerTitle: 'Please Order' }} />
+        {/* <Stack.Screen name="(flower)" options={{ headerShown: false }} /> */}
+        {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
         <Stack.Screen name="contact" options={{ title: "Contact Us" }} /> */}
-      <Stack.Screen name="+not-found" options={{ headerShown: false }} />
-    </Stack>
+        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
+      </Stack>
+    </SafeAreaProvider>
   );
 }
