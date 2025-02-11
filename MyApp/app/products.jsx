@@ -10,7 +10,7 @@ import Animated, { LinearTransition } from "react-native-reanimated";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 import { MENU_ITEMS } from "@/constants/MenuItems";
-export default function OrderScreen() {
+export default function ProductsScreen() {
     const [todos, setTodos] = useState([])
     const [text, setText] = useState('')
     const { colorScheme, setColorScheme, theme } = useContext(ThemeContext)

@@ -37,11 +37,13 @@ export default function RootLayout() {
   return (
     <ThemeProvider>
       <SafeAreaProvider>
-        <Stack>
+        <Stack screenOptions={{ headerShown: false }}>
           <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
           <Stack.Screen name="menu" options={{ headerShown: true, title: 'Menu', headerTitle: 'Coffee Shop Menu' }} />
           <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact', headerTitle: 'Contact Us' }} />
-          <Stack.Screen name="order" options={{ headerShown: false, title: 'Order', headerTitle: 'Please Order' }} />
+          <Stack.Screen name="products" />
+          <Stack.Screen name="order" />
+          {/* <Stack.Screen name="product" options={{ headerShown: false, title: 'Order', headerTitle: 'Please Order' }} /> */}
           {/* <Stack.Screen name="(flower)" options={{ headerShown: false }} /> */}
           {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
         <Stack.Screen name="contact" options={{ title: "Contact Us" }} /> */}
