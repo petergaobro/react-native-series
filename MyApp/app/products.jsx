@@ -10,11 +10,12 @@ import Animated, { LinearTransition } from "react-native-reanimated";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { StatusBar } from "expo-status-bar";
 import { MENU_ITEMS } from "@/constants/MenuItems";
+import { useRouter } from "expo-router";
 export default function ProductsScreen() {
     const [todos, setTodos] = useState([])
     const [text, setText] = useState('')
     const { colorScheme, setColorScheme, theme } = useContext(ThemeContext)
-
+    const router = useRouter()
 
 
     const [loaded, error] = useFonts({
@@ -79,14 +80,23 @@ export default function ProductsScreen() {
         setTodos(todos.filter(todo => todo.id !== id))
     }
 
+    const handlePress = (id) => {
+        router.push(`/orders/${id}`)
+    }
+
     const renderItem = ({ item }) => (
         <View style={styles.todoItem}>
-            <Text
-                style={[styles.todoText, item.completed && styles.completedText]}
-                onPress={() => toggleTodo(item.id)}
+            <Pressable
+                onPress={() => handlePress(item.id)}
+                onLongPress={() => toggleTodo(item.id)}
             >
-                {item.title}
-            </Text>
+                <Text
+                    style={[styles.todoText, item.completed && styles.completedText]}
+
+                >
+                    {item.title}
+                </Text>
+            </Pressable>
             <Pressable onPress={() => removeTodo(item.id)}>
                 <MaterialCommunityIcons name="delete-circle" size={36} color="red" selectable={undefined} />
             </Pressable>
