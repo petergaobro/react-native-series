@@ -81,9 +81,7 @@ export default function EditScreen() {
 
                 <Pressable
                     onPress={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')} style={{ marginLeft: 10 }}>
-
                     <Octicons name={colorScheme === 'dark' ? "moon" : "sun"} size={36} color={theme.text} selectable={undefined} style={{ width: 36 }} />
-
                 </Pressable>
             </View>
 
