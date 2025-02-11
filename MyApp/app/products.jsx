@@ -92,7 +92,6 @@ export default function ProductsScreen() {
             >
                 <Text
                     style={[styles.todoText, item.completed && styles.completedText]}
-
                 >
                     {item.title}
                 </Text>

@@ -67,6 +67,7 @@ export default function EditScreen() {
 
     return (
         <SafeAreaView style={styles.container}>
+            <Text>{id}</Text>
             <View style={styles.inputContainer}>
                 <TextInput
                     style={styles.input}
@@ -76,6 +77,8 @@ export default function EditScreen() {
                     value={order?.title || ''}
                     onChangeText={(text) => setOrder(prev => ({ ...prev, title: text }))}
                 />
+
+
                 <Pressable
                     onPress={() => setColorScheme(colorScheme === 'light' ? 'dark' : 'light')} style={{ marginLeft: 10 }}>
 
