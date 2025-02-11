@@ -11,6 +11,7 @@ import { Appearance } from 'react-native';
 
 // import { useColorScheme } from '@/hooks/useColorScheme';
 import { Colors } from '@/constants/Colors';
+import { ThemeProvider } from '@/context/ThemeContext';
 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -34,17 +35,19 @@ export default function RootLayout() {
   }
 
   return (
-    <SafeAreaProvider>
-      <Stack screenOptions={{ headerStyle: { backgroundColor: theme.headerBackground }, headerTintColor: theme.text, headerShadowVisible: false }}>
-        <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
-        <Stack.Screen name="menu" options={{ headerShown: true, title: 'Menu', headerTitle: 'Coffee Shop Menu' }} />
-        <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact', headerTitle: 'Contact Us' }} />
-        <Stack.Screen name="order" options={{ headerShown: true, title: 'Order', headerTitle: 'Please Order' }} />
-        {/* <Stack.Screen name="(flower)" options={{ headerShown: false }} /> */}
-        {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
+    <ThemeProvider>
+      <SafeAreaProvider>
+        <Stack>
+          <Stack.Screen name="index" options={{ headerShown: false, title: 'Home' }} />
+          <Stack.Screen name="menu" options={{ headerShown: true, title: 'Menu', headerTitle: 'Coffee Shop Menu' }} />
+          <Stack.Screen name="contact" options={{ headerShown: true, title: 'Contact', headerTitle: 'Contact Us' }} />
+          <Stack.Screen name="order" options={{ headerShown: false, title: 'Order', headerTitle: 'Please Order' }} />
+          {/* <Stack.Screen name="(flower)" options={{ headerShown: false }} /> */}
+          {/* <Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
         <Stack.Screen name="contact" options={{ title: "Contact Us" }} /> */}
-        <Stack.Screen name="+not-found" options={{ headerShown: false }} />
-      </Stack>
-    </SafeAreaProvider>
+          <Stack.Screen name="+not-found" options={{ headerShown: false }} />
+        </Stack>
+      </SafeAreaProvider>
+    </ThemeProvider>
   );
 }
